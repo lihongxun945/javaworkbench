@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.multipart.saveDir" value="/tmp"></constant>
+    
+    <package name="inters" extends="struts-default">
+	    <interceptors>
+    		<interceptor name="checkLogin" class="inters.Login" />
+    		<interceptor name="adminCheck" class="inters.Admin" />
+    		<interceptor-stack name="loginStack">
+    			<interceptor-ref name="checkLogin" />
+    			<interceptor-ref name="defaultStack" />
+    		</interceptor-stack>
+    	</interceptors>
+    </package>
+
+    <package name="pages" namespace="/" extends="inters">
+    	
+    	
+    	<action name="login">
+    		<result name="*">/WEB-INF/login.jsp</result>
+    	</action>
+    	<action name="regist">
+    		<result name="*">/WEB-INF/regist.jsp</result>
+    	</action>
+
+    	<action name="home">
+    		<interceptor-ref name="loginStack" />
+    		<interceptor-ref name="timer" />
+    		<result name="error">/WEB-INF/login.jsp</result>
+    		<result name="*">/WEB-INF/home.jsp</result>
+    	</action>
+    	<action name="admin" class="admin.Admin">
+	    	<interceptor-ref name="loginStack" />
+	    	<interceptor-ref name="adminCheck" />
+    		<result name="success">/WEB-INF/admin/admin.jsp</result>
+    		<result name="error">/WEB-INF/login.jsp</result>
+    	</action>
+    </package>
+    <package name="actions" namespace="/actions" extends="inters">
+    	<action name="login" class="actions.Login" method="check">
+    		<interceptor-ref name="defaultStack" />
+    		<result name="error">/WEB-INF/login.jsp</result>
+    		<result name="success">/WEB-INF/home.jsp</result>
+    	</action>
+    	<action name="regist" class="actions.Regist" method="regist">
+    		<interceptor-ref name="fileUpload">
+    			<param name="allowedTypes">image/png, image/jpg, image/jpeg, image/gif</param>
+    			<param name="maximumSize">99999999</param>
+    		</interceptor-ref>
+    		<interceptor-ref name="defaultStack"></interceptor-ref>
+    		<result name="success">/WEB-INF/login.jsp</result>
+    		<result name="input">/WEB-INF/regist.jsp</result>
+    	</action>
+	</package>
+	
+    <package name="mods" namespace="/mods" extends="inters">
+    	<action name="user_card" class="mods.UserCard">
+    		<interceptor-ref name="loginStack" />
+    		<result name="success">/WEB-INF/mods/user_card.jsp</result>
+    		<result name="error">/WEB-INF/mods/error.jsp</result>
+    	</action>
+    </package>
+
+    <!-- Add packages here -->
+
+</struts>
