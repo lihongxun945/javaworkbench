@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="DAO.vo.User" table="user" catalog="hibernatedemo">
+		<id name="id" type="java.lang.Integer">
+			<column name="id"></column>
+			<generator class="native"></generator>
+		</id>
+		<property name="username" type="java.lang.String">
+			<column name="username" length="20"></column>
+		</property>
+		<property name="password" type="java.lang.String">
+			<column name="password" length="20"></column>
+		</property>
+		<property name="bio" type="java.lang.String">
+			<column name="bio" length="20"></column>
+		</property>
+		<set name="topics" table="topics" lazy="false" inverse="false">
+			<key column="user_id" not-null="true"></key>
+			<element type="java.lang.Integer" column="topic_id" not-null="true"></element>
+		</set>
+	</class>
+</hibernate-mapping>

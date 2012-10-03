@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf8"
     pageEncoding="utf8"%>
-<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,9 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-欢迎你回来，<s:property value="userName" /> 先生！
-<s:action name="user_card" namespace="/mods" executeResult="true">
-	<s:param name="userName" value="axun" />
-</s:action>
+	<form id="form" method="POST" action="regist_action.jsp">
+		<label>用户名：</label><input type="text" name="username" /><br />
+		<label>密码：</label><input type="password" name="password" /><br />
+		<label>简介：</label><textarea type="text" name="bio" /></textarea><br />
+		<input type="submit" value="注册" />
+	</form>
 </body>
 </html>
