@@ -1,0 +1,1 @@
+java -jar CMMcompiler1.5_fat.jar

@@ -1,0 +1,193 @@
+#
+# An unexpected error has been detected by HotSpot Virtual Machine:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x778456d8, pid=4808, tid=5700
+#
+# Java VM: Java HotSpot(TM) Client VM (1.5.0_11-b03 mixed mode)
+# Problematic frame:
+# C  [ntdll.dll+0x556d8]
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0166baa0):  VMThread [id=5700]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0xffffffff
+
+Registers:
+EAX=0x00226660, EBX=0x00200000, ECX=0xffffffff, EDX=0x00000000
+ESP=0x0b6deb90, EBP=0x0b6dec60, ESI=0x00226658, EDI=0x00000000
+EIP=0x778456d8, EFLAGS=0x00010246
+
+Top of Stack: (sp=0x0b6deb90)
+0x0b6deb90:   7d3c7333 0b6deda8 00200254 00200000
+0x0b6deba0:   0b6dec50 0b6dec6c 00000000 0000007f
+0x0b6debb0:   00000081 0b6dec81 0b6decb3 00000000
+0x0b6debc0:   00000081 00000088 0b6decc8 0b6decda
+0x0b6debd0:   00000000 00000088 00000089 0b6decef
+0x0b6debe0:   0b6ded17 00000000 00000089 0000012d
+0x0b6debf0:   00000000 0b6ded5c 00000000 0000012d
+0x0b6dec00:   0000012e 0b6ded74 00000000 00000000 
+
+Instructions: (pc=0x778456d8)
+0x778456c8:   03 00 8d 46 08 8b 10 89 55 98 8b 4e 0c 89 4d b8
+0x778456d8:   8b 09 8b 52 04 3b ca 0f 85 a1 27 03 00 3b c8 0f 
+
+
+Stack: [0x0b6a0000,0x0b6e0000),  sp=0x0b6deb90,  free space=250k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [ntdll.dll+0x556d8]
+C  [ntdll.dll+0x5353a]
+C  [guard32.dll+0x2c4f6]
+C  [RPCRT4.dll+0x33715]
+C  [RPCRT4.dll+0x336ee]
+C  [RPCRT4.dll+0x3b1f8]
+C  [RPCRT4.dll+0x3b1d9]
+C  [ADVAPI32.dll+0x28c03]
+C  [ADVAPI32.dll+0x28ba5]
+C  [RPCRT4.dll+0x3f7f4]
+C  [RPCRT4.dll+0x3f86d]
+C  [RPCRT4.dll+0x957f9]
+C  [ADVAPI32.dll+0x28dea]
+C  [ADVAPI32.dll+0x28d87]
+C  [ADVAPI32.dll+0x29b38]
+C  [ADVAPI32.dll+0x290cc]
+C  [ADVAPI32.dll+0x12c49]
+C  [ADVAPI32.dll+0x12bc9]
+C  [SOGOUPY.IME+0x33498]
+C  [SOGOUPY.IME+0x9df4]
+C  [SOGOUPY.IME+0x2075d5]
+C  [SOGOUPY.IME+0x2076ac]
+C  [SOGOUPY.IME+0x119491]
+C  [SOGOUPY.IME+0x119539]
+C  [ntdll.dll+0x5afc4]
+C  [ntdll.dll+0x638da]
+C  [ntdll.dll+0x6384d]
+C  [kernel32.dll+0x52b04]
+C  [msvcrt.dll+0x136dc]
+C  [msvcrt.dll+0x13372]
+C  [msvcrt.dll+0x136bb]
+V  [jvm.dll+0x12a98a]
+V  [jvm.dll+0x129cfe]
+V  [jvm.dll+0x129ea7]
+V  [jvm.dll+0x129c0c]
+C  [msvcrt.dll+0x11287]
+C  [msvcrt.dll+0x11328]
+C  [kernel32.dll+0x51194]
+C  [ntdll.dll+0x5b495]
+C  [ntdll.dll+0x5b468]
+
+VM_Operation (0x0f5ef754): exit, mode: safepoint, requested by thread 0x0b7e6de8
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x01694198 JavaThread "Image Fetcher 0" daemon [_thread_blocked, id=5492]
+  0x0b8fb400 JavaThread "TimerQueue" daemon [_thread_blocked, id=4912]
+  0x015b1c98 JavaThread "DestroyJavaVM" [_thread_blocked, id=3320]
+  0x0b825988 JavaThread "Thread-3" [_thread_blocked, id=5040]
+  0x0b7e6de8 JavaThread "AWT-EventQueue-0" [_thread_blocked, id=1336]
+  0x0b7e30b0 JavaThread "Thread-2" [_thread_blocked, id=5524]
+  0x0b7e1b40 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=5612]
+  0x0b7a3bd8 JavaThread "AWT-Shutdown" [_thread_blocked, id=5080]
+  0x01681720 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=5008]
+  0x01680d90 JavaThread "CompilerThread0" daemon [_thread_blocked, id=3692]
+  0x0168ebb0 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=5912]
+  0x016710e8 JavaThread "Finalizer" daemon [_thread_blocked, id=5788]
+  0x0166faa0 JavaThread "Reference Handler" daemon [_thread_blocked, id=4176]
+
+Other Threads:
+=>0x0166baa0 VMThread [id=5700]
+
+VM state:at safepoint (shutting down)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x015b1c38/0x000000e8] Threads_lock - owner thread: 0x0166baa0
+
+Heap
+ def new generation   total 576K, used 368K [0x036a0000, 0x03740000, 0x03b80000)
+  eden space 512K,  62% used [0x036a0000, 0x036f01c0, 0x03720000)
+  from space 64K,  74% used [0x03720000, 0x0372be98, 0x03730000)
+  to   space 64K,   0% used [0x03730000, 0x03730000, 0x03740000)
+ tenured generation   total 6524K, used 5208K [0x03b80000, 0x041df000, 0x076a0000)
+   the space 6524K,  79% used [0x03b80000, 0x04096248, 0x04096400, 0x041df000)
+ compacting perm gen  total 8704K, used 8548K [0x076a0000, 0x07f20000, 0x0b6a0000)
+   the space 8704K,  98% used [0x076a0000, 0x07ef9020, 0x07ef9200, 0x07f20000)
+No shared spaces configured.
+
+Dynamic libraries:
+0x00400000 - 0x0040d000 	F:\Users\axun\AppData\Roaming\MyEclipse 6.5\jre\bin\javaw.exe
+0x777f0000 - 0x7792c000 	C:\Windows\SYSTEM32\ntdll.dll
+0x75cd0000 - 0x75da4000 	C:\Windows\system32\kernel32.dll
+0x75a10000 - 0x75a5a000 	C:\Windows\system32\KERNELBASE.dll
+0x76690000 - 0x76730000 	C:\Windows\system32\ADVAPI32.dll
+0x76730000 - 0x767dc000 	C:\Windows\system32\msvcrt.dll
+0x77950000 - 0x77969000 	C:\Windows\SYSTEM32\sechost.dll
+0x767e0000 - 0x76881000 	C:\Windows\system32\RPCRT4.dll
+0x760e0000 - 0x761a9000 	C:\Windows\system32\USER32.dll
+0x75fb0000 - 0x75ffe000 	C:\Windows\system32\GDI32.dll
+0x77930000 - 0x7793a000 	C:\Windows\system32\LPK.dll
+0x764d0000 - 0x7656d000 	C:\Windows\system32\USP10.dll
+0x764b0000 - 0x764cf000 	C:\Windows\system32\IMM32.DLL
+0x774e0000 - 0x775ac000 	C:\Windows\system32\MSCTF.dll
+0x10000000 - 0x10048000 	C:\Windows\system32\guard32.dll
+0x75930000 - 0x75939000 	C:\Windows\system32\VERSION.dll
+0x75920000 - 0x75927000 	C:\Windows\system32\fltlib.dll
+0x6d640000 - 0x6d7dd000 	F:\Users\axun\AppData\Roaming\MyEclipse 6.5\jre\bin\client\jvm.dll
+0x74650000 - 0x74682000 	C:\Windows\system32\WINMM.dll
+0x75850000 - 0x7589b000 	C:\Windows\system32\apphelp.dll
+0x6d290000 - 0x6d298000 	F:\Users\axun\AppData\Roaming\MyEclipse 6.5\jre\bin\hpi.dll
+0x77a10000 - 0x77a15000 	C:\Windows\system32\PSAPI.DLL
+0x6d610000 - 0x6d61c000 	F:\Users\axun\AppData\Roaming\MyEclipse 6.5\jre\bin\verify.dll
+0x6d310000 - 0x6d32d000 	F:\Users\axun\AppData\Roaming\MyEclipse 6.5\jre\bin\java.dll
+0x6d630000 - 0x6d63f000 	F:\Users\axun\AppData\Roaming\MyEclipse 6.5\jre\bin\zip.dll
+0x6d000000 - 0x6d16a000 	F:\Users\axun\AppData\Roaming\MyEclipse 6.5\jre\bin\awt.dll
+0x74550000 - 0x745a1000 	C:\Windows\system32\WINSPOOL.DRV
+0x76350000 - 0x764ac000 	C:\Windows\system32\ole32.dll
+0x74340000 - 0x74380000 	C:\Windows\system32\uxtheme.dll
+0x0bcd0000 - 0x0bff4000 	C:\Windows\system32\SOGOUPY.IME
+0x73c00000 - 0x73c05000 	C:\Windows\system32\MSIMG32.dll
+0x76890000 - 0x774d9000 	C:\Windows\system32\SHELL32.dll
+0x779b0000 - 0x77a07000 	C:\Windows\system32\SHLWAPI.dll
+0x739a0000 - 0x739c1000 	C:\Windows\system32\ntmarta.dll
+0x76090000 - 0x760d5000 	C:\Windows\system32\WLDAP32.dll
+0x0c1b0000 - 0x0c242000 	F:\Program Files\SogouInput\5.1.1.4880\Resource.dll
+0x74010000 - 0x74023000 	C:\Windows\system32\dwmapi.dll
+0x758a0000 - 0x758ac000 	C:\Windows\system32\CRYPTBASE.dll
+0x6d240000 - 0x6d290000 	F:\Users\axun\AppData\Roaming\MyEclipse 6.5\jre\bin\fontmanager.dll
+0x6d3d0000 - 0x6d3ef000 	F:\Users\axun\AppData\Roaming\MyEclipse 6.5\jre\bin\jpeg.dll
+0x6d4d0000 - 0x6d4e3000 	F:\Users\axun\AppData\Roaming\MyEclipse 6.5\jre\bin\net.dll
+0x76570000 - 0x765a5000 	C:\Windows\system32\WS2_32.dll
+0x77940000 - 0x77946000 	C:\Windows\system32\NSI.dll
+0x75370000 - 0x753ac000 	C:\Windows\system32\mswsock.dll
+0x754d0000 - 0x754d6000 	C:\Windows\System32\wship6.dll
+0x6d4f0000 - 0x6d4f9000 	F:\Users\axun\AppData\Roaming\MyEclipse 6.5\jre\bin\nio.dll
+0x75c40000 - 0x75cc3000 	C:\Windows\system32\CLBCatQ.DLL
+0x76000000 - 0x7608f000 	C:\Windows\system32\OLEAUT32.dll
+0x6d1c0000 - 0x6d1e3000 	F:\Users\axun\AppData\Roaming\MyEclipse 6.5\jre\bin\dcpr.dll
+
+VM Arguments:
+java_command: cmm.client.CMMClient
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.6.0_06\bin
+CLASSPATH=.;C:\Program Files\Java\jdk1.6.0_06\bin\lib;C:\Program Files\Java\jdk1.6.0_06\bin\lib\tools.jar
+PATH=C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\90\Tools\binn\;C:\Program Files\Java\jdk1.6.0_06\bin;F:\Program Files\MySQL\MySQL Server 5.0\bin
+USERNAME=axun
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=x86 Family 6 Model 23 Stepping 10, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows NT 6.1 Build 7600 
+
+CPU:total 2 (cores per cpu 2, threads per core 1) family 6 model 7 stepping 10, cmov, cx8, fxsr, mmx, sse, sse2
+
+Memory: 4k page, physical 2083432k(956260k free), swap 4194303k(4194303k free)
+
+vm_info: Java HotSpot(TM) Client VM (1.5.0_11-b03) for windows-x86, built on Dec 15 2006 01:16:12 by "java_re" with MS VC++ 6.0
+

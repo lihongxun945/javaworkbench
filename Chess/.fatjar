@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Sat Jul 31 15:39:48 CST 2010
+onejar.license.required=true
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=Chess_fat.jar
+manifest.mergeall=true
+manifest.mainclass=axun.com.Login
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=
+includes=
